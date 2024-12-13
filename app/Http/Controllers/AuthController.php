@@ -32,7 +32,7 @@ class AuthController extends Controller
             'email' => $user->email,
         ]);
 
-        return response()->json(['user' => $user, 'message' => 'User registered successfully!'], 201);
+        return response()->json(['user' => $user, 'message' => 'User registered successfully, A verification email has been sent to your email address.'], 201);
     }
 
     // Login User
@@ -58,7 +58,7 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         // Log successful login
-        Log::info('User logged in successfully', [
+        Log::info('Login Successful', [
             'user_id' => $user->id,
             'email' => $user->email,
         ]);
